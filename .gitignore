@@ -1,0 +1,53 @@
+# =============== #
+# Unity generated #
+# =============== #
+[Tt]emp/
+[Oo]bj/
+[Bb]uild
+sysinfo.txt
+*.stackdump
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+[Ee]xported[Oo]bj/
+.vs/
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln*
+/*.user
+/*.unityproj
+/*.booproj
+/UnityProject/Library/metadata/
+
+
+
+# ===================================== #
+# Build #
+# ===================================== #
+
+
+/Builds/
+*.csproj
+UnityProject/Assets/StreamingAssets/build_info.txt
+UnityProject/Assets/StreamingAssets/build_info.txt.meta
+UnityProject/UnityProject.sln
+UnityProject/Assets/UserData/
+UnityProject/UnityProject.userprefs
+UnityProject/UnityProject.csproj.DotSettings
+UnityProject/Library/
+
+# ===================================== #
+# Android Studio captures folder #
+# ===================================== #
+
+*.apk
+*.iml
+.gradle/
+.idea/
+build/
+gradle/
+gradlew/
+*.bat
