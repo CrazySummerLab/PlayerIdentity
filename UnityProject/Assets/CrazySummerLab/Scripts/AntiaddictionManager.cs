@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Text.RegularExpressions;
 using CrazySummerLab.Scripts.Extentions;
 using UnityEngine;
 using UnityEngine.PlayerIdentity;
@@ -17,6 +18,9 @@ namespace CrazySummerLab.Scripts
         public static Action<LoginStatus> OnLoginStatus;
         public static Action<AntiaddictionType> OnAntiAddictionUserAge;
         public static Action<String, String> OnMandatoryOffline;
+        public static Action<Boolean> OnRealNames;
+
+        private Regex regEnglish;
 
         public static AntiaddictionManager Instance;
         private void Awake()
@@ -28,11 +32,13 @@ namespace CrazySummerLab.Scripts
             }
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            regEnglish = new Regex("^[a-zA-Z]");
             _antiAddictionClientApi = GetComponent<AntiAddictionClientApi>();
             _antiAddictionClientApi.OnKickOff += OnKickOff;
             _antiAddictionClientApi.OnMessage += OnMessage;
             _antiAddictionClientApi.OnJudgePay += OnJudgePay;
             _antiAddictionClientApi.OnJudgeTime += OnJudgeTime;
+            _antiAddictionClientApi.OnRealName += OnRealName;
             StartCoroutine(Beat());
         }
 
@@ -44,6 +50,7 @@ namespace CrazySummerLab.Scripts
                 _antiAddictionClientApi.OnMessage -= OnMessage;
                 _antiAddictionClientApi.OnJudgePay -= OnJudgePay;
                 _antiAddictionClientApi.OnJudgeTime -= OnJudgeTime;
+                _antiAddictionClientApi.OnRealName -= OnRealName;
             }
         }
 
@@ -96,6 +103,9 @@ namespace CrazySummerLab.Scripts
         private void OnMessage(string title, string msg, string context)
         {
             Debug.Log("Antiaddiction OnMessage: " + title + ", msg: " + msg + ", context: " + context);
+            if (regEnglish.IsMatch(title)) return;
+            if (String.IsNullOrEmpty(msg)) return;
+            if (regEnglish.IsMatch(msg)) return;
             OnMandatoryOffline.SafeInvoke(title, msg);
         }
 
@@ -156,10 +166,19 @@ namespace CrazySummerLab.Scripts
             _antiAddictionClientApi.JudgePay();
         }
 
+        public void OnRealName(Boolean isrealName)
+        {
+            //isrealname-false not real name，true-yes real name
+            Debug.Log("Antiaddiction is Real Name: " + isrealName);
+            OnRealNames.SafeInvoke(isrealName);
+        }
+
         public void JudgePay(Action<AntiaddictionType> userIsAdultCallback)
         {
             _antiaddictionUserAge = userIsAdultCallback;
             JudgePay();
         }
+
+
     }
 }

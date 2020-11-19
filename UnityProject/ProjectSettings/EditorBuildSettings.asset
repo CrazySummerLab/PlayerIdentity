@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
-    com.unity.playerid.apple_loader: {fileID: 11400000, guid: 5521ac0ec182d415cb7620de2f9ad48e,
+    com.unity.playerid.apple_loader: {fileID: 11400000, guid: 1a6bad481eb624619b3360b21285e2ed,
       type: 2}
-    com.unity.playerid.management.loader_settings: {fileID: 11400000, guid: c377cccc50b934972aedf308f47fcfd7,
+    com.unity.playerid.management.loader_settings: {fileID: 11400000, guid: 675ec6b4f2a464810a17c88dbee0b5c7,
       type: 2}
-    com.unity.playerid.unity_userauth_loader: {fileID: 11400000, guid: 363b18cc3bcd34f3faa5a83f053d1679,
+    com.unity.playerid.unity_userauth_loader: {fileID: 11400000, guid: c3e9a4550bb9545ad8a6767a86e149ef,
       type: 2}
-    com.unity.playerid.wechat_loader: {fileID: 11400000, guid: 227ce7ece93ad41e6a705db20322b311,
+    com.unity.playerid.wechat_loader: {fileID: 11400000, guid: d247d1a4d3fdf43adab29448b263616b,
       type: 2}

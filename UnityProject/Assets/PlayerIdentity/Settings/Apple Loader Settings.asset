@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Apple Loader Settings
   m_EditorClassIdentifier: 
   m_CallbackEndpoint: https://identity-api.unity.cn/oauth2/callback
-  m_ApplicationDeepLink: com.defaultcompany.demo://siwacallback
-  m_ServiceId: com.DefaultCompany.Demo.service
+  m_ApplicationDeepLink: com.crazysummerlab.unityproject://siwacallback
+  m_ServiceId: com.CrazySummerLab.UnityProject.service
