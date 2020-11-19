@@ -9,7 +9,6 @@ public class SampleScene : MonoBehaviour
 {
     private void Awake()
     {
-        AntiaddictionManager.OnLoginStatus += OnLoginStatus;
         AntiaddictionManager.OnJudgeTimes += OnJudgeTimes;
         AntiaddictionManager.OnAntiAddictionUserAge += OnAntiAddictionUserAge;
         AntiaddictionManager.OnMandatoryOffline += OnMandatoryOffline;
@@ -52,11 +51,6 @@ public class SampleScene : MonoBehaviour
                 break;
         }
         Debug.Log("SampleSceen OnAntiAddictionUserAge: " + antiaddictionType.ToString());
-    }
-
-    private void OnLoginStatus(LoginStatus loginStatus)
-    {
-        Debug.Log("SampleSceen OnLoginStatus: "+loginStatus.ToString());
     }
 
     private void OnJudgeTimes(int times)

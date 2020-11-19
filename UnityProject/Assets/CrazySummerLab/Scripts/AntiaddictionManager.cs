@@ -11,11 +11,9 @@ namespace CrazySummerLab.Scripts
     {
         private AntiAddictionClientApi _antiAddictionClientApi;
         private bool flag = false;
-        private LoginStatus _loginStatusDefault;
         private Action<AntiaddictionType> _antiaddictionUserAge;
 
         public static Action<Int32> OnJudgeTimes;
-        public static Action<LoginStatus> OnLoginStatus;
         public static Action<AntiaddictionType> OnAntiAddictionUserAge;
         public static Action<String, String> OnMandatoryOffline;
         public static Action<Boolean> OnRealNames;
@@ -56,27 +54,10 @@ namespace CrazySummerLab.Scripts
 
         private void Update()
         {
-            StartCoroutine(CheckLogin(1f));
-        }
-
-        private IEnumerator CheckLogin(float delaySeconds)
-        {
-            while (true)
+            if (!flag)
             {
-                yield return new WaitForSeconds(delaySeconds);
-                if(_loginStatusDefault != PlayerIdentityManager.Current.loginStatus)
-                {
-                    _loginStatusDefault = PlayerIdentityManager.Current.loginStatus;
-                    flag = false;
-                    if (_loginStatusDefault == LoginStatus.AnonymouslyLoggedIn || _loginStatusDefault == LoginStatus.LoggedIn)
-                        flag = true;
-
-                    if (_loginStatusDefault == LoginStatus.LoggedIn)
-                        JudgePay();
-
-                    if (_loginStatusDefault != LoginStatus.LoginInProgress)
-                        OnLoginStatus.SafeInvoke(_loginStatusDefault);
-                }
+                if (PlayerIdentityManager.Current.loginStatus == LoginStatus.LoggedIn)
+                    flag = true;
             }
         }
 
@@ -166,12 +147,14 @@ namespace CrazySummerLab.Scripts
             _antiAddictionClientApi.JudgePay();
         }
 
-        public void OnRealName(Boolean isrealName)
+        private void OnRealName(Boolean isrealName)
         {
             //isrealname-false not real name，true-yes real name
             Debug.Log("Antiaddiction is Real Name: " + isrealName);
             OnRealNames.SafeInvoke(isrealName);
         }
+
+        public LoginStatus GetLoginStatus => PlayerIdentityManager.Current.loginStatus;
 
         public void JudgePay(Action<AntiaddictionType> userIsAdultCallback)
         {
