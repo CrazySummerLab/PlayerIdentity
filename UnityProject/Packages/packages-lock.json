@@ -8,8 +8,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.editorcoroutines": {
-      "version": "0.0.2-preview.1",
-      "depth": 1,
+      "version": "1.0.0",
+      "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -38,15 +38,14 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.playerid-cn": {
-      "version": "0.2.7-preview",
+      "version": "file:../Assets/com.unity.playerid-cn@0.2.7-preview",
       "depth": 0,
-      "source": "registry",
+      "source": "local",
       "dependencies": {
         "com.unity.subsystemregistration": "1.0.5",
         "com.unity.textmeshpro": "2.0.1",
         "com.unity.editorcoroutines": "0.0.2-preview.1"
-      },
-      "url": "https://packages.unity.com"
+      }
     },
     "com.unity.subsystemregistration": {
       "version": "1.0.5",
