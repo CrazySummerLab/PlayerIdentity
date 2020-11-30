@@ -10,6 +10,7 @@ namespace UnityEngine.PlayerIdentity.UI
     {
         public GameObject errorPopup;
         public GameObject infoPopup;
+        public AntiAddictionPanel antiAddictionPanel;
 
         CanvasGroup m_ErrorCanvas;
         CanvasGroup m_InfoCanvas;

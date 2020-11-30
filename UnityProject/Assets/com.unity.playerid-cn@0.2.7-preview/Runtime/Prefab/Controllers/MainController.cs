@@ -61,6 +61,7 @@ namespace UnityEngine.PlayerIdentity.UI
             else
             {
                 Instance = this;
+                DontDestroyOnLoad(gameObject);
             }
         }
 

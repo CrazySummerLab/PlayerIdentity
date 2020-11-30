@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using CrazySummerLab.Scripts.Extentions;
 using UnityEngine;
 using UnityEngine.PlayerIdentity;
+using UnityEngine.PlayerIdentity.UI;
 
 namespace CrazySummerLab.Scripts
 {
@@ -14,6 +15,7 @@ namespace CrazySummerLab.Scripts
         private Action<AntiaddictionType> _antiaddictionUserAge;
 
         public static Action<Int32> OnJudgeTimes;
+        public static Action<Boolean> OnLoginStatus;
         public static Action<AntiaddictionType> OnAntiAddictionUserAge;
         public static Action<String, String> OnMandatoryOffline;
         public static Action<Boolean> OnRealNames;
@@ -57,7 +59,10 @@ namespace CrazySummerLab.Scripts
             if (!flag)
             {
                 if (PlayerIdentityManager.Current.loginStatus == LoginStatus.LoggedIn)
+                {
                     flag = true;
+                    OnLoginStatus.SafeInvoke(flag);
+                }
             }
         }
 
@@ -162,6 +167,9 @@ namespace CrazySummerLab.Scripts
             JudgePay();
         }
 
-
+        public void ShowPopUp(String title, String msg, Action callback = null)
+        {
+            MainController.Instance.PopupController.antiAddictionPanel.ShowPanel(title, msg, callback);
+        }
     }
 }

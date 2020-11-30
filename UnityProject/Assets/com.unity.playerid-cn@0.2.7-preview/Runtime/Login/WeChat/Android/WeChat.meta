@@ -1,33 +1,8 @@
 fileFormatVersion: 2
-guid: e51afc11f5754438bb3052c9a845bc9b
+guid: f1ad1d50d41504c7aa78c6171af203ee
 folderAsset: yes
-PluginImporter:
+DefaultImporter:
   externalObjects: {}
-  serializedVersion: 2
-  iconMap: {}
-  executionOrder: {}
-  defineConstraints: []
-  isPreloaded: 0
-  isOverridable: 0
-  isExplicitlyReferenced: 0
-  validateReferences: 1
-  platformData:
-  - first:
-      Android: Android
-    second:
-      enabled: 1
-      settings: {}
-  - first:
-      Any: 
-    second:
-      enabled: 0
-      settings: {}
-  - first:
-      Editor: Editor
-    second:
-      enabled: 0
-      settings:
-        DefaultValueInitialized: true
   userData: 
   assetBundleName: 
   assetBundleVariant: 
