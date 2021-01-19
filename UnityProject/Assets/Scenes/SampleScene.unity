@@ -943,6 +943,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5266444205907635859, guid: e144bc89028f146eaabab2907bb91da4,
+        type: 3}
+      propertyPath: onLogout.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266444205907635859, guid: e144bc89028f146eaabab2907bb91da4,
+        type: 3}
+      propertyPath: onLogout.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266444205907635859, guid: e144bc89028f146eaabab2907bb91da4,
+        type: 3}
+      propertyPath: onLogout.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6086861680953965011, guid: e144bc89028f146eaabab2907bb91da4,
         type: 3}
       propertyPath: m_LocalPosition.x

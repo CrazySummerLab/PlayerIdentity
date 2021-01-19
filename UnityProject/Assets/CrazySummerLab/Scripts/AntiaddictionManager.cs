@@ -39,6 +39,7 @@ namespace CrazySummerLab.Scripts
             _antiAddictionClientApi.OnJudgePay += OnJudgePay;
             _antiAddictionClientApi.OnJudgeTime += OnJudgeTime;
             _antiAddictionClientApi.OnRealName += OnRealName;
+            _antiAddictionClientApi.
             StartCoroutine(Beat());
         }
 
@@ -170,6 +171,12 @@ namespace CrazySummerLab.Scripts
         public void ShowPopUp(String title, String msg, Action callback = null)
         {
             MainController.Instance.PopupController.antiAddictionPanel.ShowPanel(title, msg, callback);
+        }
+
+        public void OnLogout()
+        {
+            flag = false;
+            OnLoginStatus.SafeInvoke(flag);
         }
     }
 }

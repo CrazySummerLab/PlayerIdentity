@@ -87,6 +87,11 @@ public class SampleScene : MonoBehaviour
             ShowPlayerIdentity(false);
             JudgePay();
         }
+        else
+        {
+            //Return to login scene
+            Debug.Log("Return to login scene");
+        }
     }
 
     private void OnJudgeTimes(int times)
